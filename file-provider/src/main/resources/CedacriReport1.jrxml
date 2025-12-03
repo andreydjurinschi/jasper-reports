@@ -50,7 +50,7 @@
     </detail>
     <summary height="80" splitType="Stretch">
         <element kind="staticText" uuid="33d03b0e-b823-46df-b968-cd4419d1e626" mode="Opaque" x="0" y="0" width="180" height="50" backcolor="#DBEFFF" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
-            <text><![CDATA[All holydays count]]></text>
+            <text><![CDATA[All holidays count]]></text>
         </element>
         <element kind="textField" uuid="1af9557d-e589-412c-8016-e36f394fe10e" x="203" y="-4" width="350" height="60" fontSize="25.0" hTextAlign="Center" vTextAlign="Middle">
             <expression><![CDATA[$V{REPORT_COUNT}]]></expression>

@@ -21,4 +21,8 @@ public class JasperCollectionGenerator {
         JasperExportManager.exportReportToPdfFile(print, dirCreating+"/"+fileName);
     }
 
+    public static void main(String[] ar) throws JRException, IOException {
+        generate("test", "mapCollection.pdf");
+    }
+
 }

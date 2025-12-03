@@ -2,25 +2,24 @@ package org.jasper;
 
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.design.JRCompiler;
-import net.sf.jasperreports.engine.design.JRReportCompileData;
+import net.sf.jasperreports.view.JasperViewer;
 import org.jasper.mapper.XmlBeanMapper;
 import org.jasper.pojo.HolidayPojo;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+
 
 public class JasperBeanGenerator {
     public static void generate(String filename, String dirName) throws IOException, JRException {
         List<HolidayPojo> holidayList = XmlBeanMapper.parse();
-        JasperReport report = JasperCompileManager.compileReport(FileProvider.readJRXMLForBean());
-        JRBeanCollectionDataSource source = new JRBeanCollectionDataSource(holidayList);
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(holidayList);
+        JasperReport report = JasperCompileManager.compileReport(FileProvider.readJRXMLForBean()); // compiling the .jrxml file into .jasper
 
-        JasperPrint print = JasperFillManager.fillReport(report, null, source);
+        JasperPrint print = JasperFillManager.fillReport(report, null, dataSource);
+        // report viewer
+        //JasperViewer.viewReport(print);
+
         JasperExportManager.exportReportToPdfFile(print, ExportProvider.exportToDesktop(dirName)+"/"+filename);
     }
 
