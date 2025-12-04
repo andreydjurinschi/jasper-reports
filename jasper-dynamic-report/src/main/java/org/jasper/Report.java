@@ -17,6 +17,7 @@ public class Report {
         TextColumnBuilder<String> name = builders.column("spookie", "NAME", String.class);
         JasperReportBuilder report = new JasperReportBuilder();
 
+
         report.setPageMargin(DynamicReports.margin().setLeft(250).setTop(25).setRight(55));
         report.columns(name);
         report.setDataSource(new JRBeanCollectionDataSource(XmlBeanMapper.parse()));
