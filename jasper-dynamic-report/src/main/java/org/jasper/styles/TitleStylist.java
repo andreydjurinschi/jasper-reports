@@ -26,13 +26,14 @@ public class TitleStylist {
         return this;
     }
 
-    public TitleStylist addColor(float h, float s, float b){
-        builder.setForegroundColor(Color.getHSBColor(h, s, b));
+
+    public TitleStylist addColor(int r, int g, int b){
+        builder.setForegroundColor(new Color(r,g,b));
         return this;
     }
 
     public TitleStylist addPadding(int ... values){
-        if(values == null){
+        if(values.length == 0){
             return this;
         } else if (values.length == 4) {
             builder.setLeftPadding(values[0]);
